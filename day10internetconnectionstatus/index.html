@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Internet Test</title>
+    <script
+      src="https://kit.fontawesome.com/1935d064dd.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="main">
+      <div class="container">
+        <!-- NOTE: img-fluid => max-width: 100%; height: auto; -->
+        <!-- NOTE:  rounded-top => property: border-top-left-radius border-top-right-radius -->
+        <img
+          src="image source"
+          id="image"
+          class="img-fluid rounded-top"
+          alt=""
+        />
+        <h1>Internet Connection Status</h1>
+        <p id="status" class="status">pending</p>
+      </div>
+    </section>
+
+    <!-- <script>
+      console.log(navigator.online);
+      window.addEventListener('load', (e) => {
+        const statusDisplay = document.getElementById('status');
+        statusDisplay.textContent = navigator.onLine ? 'Online' : 'Offline';
+      });
+
+      window.addEventListener('offline', (e) => {
+        const statusDisplay = document.getElementById('status');
+        statusDisplay.textContent = 'Offline';
+      });
+
+      window.addEventListener('online', (e) => {
+        const statusDisplay = document.getElementById('status');
+        statusDisplay.textContent = 'Online';
+      });
+    </script> -->
+    <script src="script.js"></script>
+  </body>
+</html>
