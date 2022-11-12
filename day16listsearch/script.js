@@ -1,18 +1,45 @@
+// Node.js 17.1 with the experimental flag --experimental-json-modules and in Chrome 91 and above
+// import data from './data.json' assert { type: 'json' };
+// console.log(data);
+// import dynamically
+const { default: data } = await import('./data.json', { assert: { type: 'json' } });
+
 const input = document.getElementById('search');
-const list = document.getElementsByTagName('li');
-// console.log(list[0].textContent);
+const sortedList = document.getElementById('list');
 // keydown => keypress => keyup
 input.addEventListener('keyup', search);
 
 function search() {
   const inputValue = input.value.toLowerCase();
-  for (let i = 0; i < list.length; i++) {
-    if (list[i].textContent.toLowerCase().includes(inputValue)) {
-      // NOTE: when we set '' or null in style.display, it means "reset(using the css setting)""
-      list[i].style.display = '';
-    } else {
-      list[i].style.display = 'none';
-    }
-  }
+  let resultArr = sortedResult(filteredItem(data, inputValue), inputValue);
+  let output = ''
+
+  resultArr.forEach((country) => {
+    output += `
+    <li>
+      ${country.name}
+    </li>
+    `.trim();
+  })
+
+  sortedList.innerHTML = output;
 }
 
+function filteredItem(data, inputValue) {
+  return data.filter((country) => {
+    if (country.name.toLowerCase().match(inputValue)) {
+      return country.name.toLowerCase().match(inputValue)
+    }
+    if (country.code.toLowerCase().match(inputValue)) {
+      return country.code.toLowerCase().match(inputValue)
+    }
+  })
+}
+
+function sortedResult(arr, word) {
+  let firstLetter = word.toLowerCase().codePointAt(0);
+  return arr.sort((a, b) => {
+    let item = a.name.toLowerCase().codePointAt(0);
+    if (item === firstLetter) return -1
+  })
+}
