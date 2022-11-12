@@ -1,0 +1,71 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+:root {
+  --white: #fff;
+  --black: #1c2b2d;
+  --blue: #31326f;
+  --light-blue: #005490;
+  --color-primary: #9d0191;
+  --color-sec: #db6400;
+  --color-grey: #eee;
+  --color-dark-grey: #222831;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 100px;
+  background: url(./images/weather.png) no-repeat center;
+  background-size: cover;
+}
+
+h1 {
+  font-size: 55px;
+  color: #fff;
+  line-height: 2;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+input {
+  font-size: 20px;
+  padding: 5px;
+  margin: 0 5px 0 0;
+  border-radius: 5px;
+  background-color: rgba(174, 194, 255, 0.6);
+  color: #fff;
+}
+
+.btn {
+  width: 70px;
+  height: 38px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#countdown {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px;
+  font-size: 45px;
+  color: #fff;
+  border-radius: 5px;
+}
