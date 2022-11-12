@@ -59,9 +59,11 @@ function displayData(response) {
     const today = new Date();
     date.textContent = showDate(today, userLocale);
     // temperature
-    temperature.textContent = `Temperature: ${Math.round(response.main.temp)}°C`;
+    temperature.textContent = `Temp: ${Math.round(response.main.temp)}°C`;
     // weather
     weather.textContent = `Weather: ${response.weather[0].main}`;
+    tempRange.textContent = `Temp Range: ${Math.round(response.main.temp_min)}°C / ${Math.round(response.main.temp_max)}°C`;
+
     // icon
     weatherIcon.src = `${iconURL}${response.weather[0].icon}@2x.png`;
   }
