@@ -1,4 +1,5 @@
 const links = document.querySelectorAll('.nav-list li a');
+const header = document.querySelector('header');
 
 for (let link of links) {
   link.addEventListener('click', smoothScroll);
@@ -12,8 +13,7 @@ function smoothScroll(e) {
   });
 }
 
-/**
- * NOTE:
- * window.scrollTo({ top: 0, behavior: 'smooth' })
- * element.scrollIntoView({ behavior: 'smooth' });
- */
+// Sticky Header
+window.addEventListener('scroll', () => {
+  header.classList.toggle('sticky', window.scrollY > 0);
+})
